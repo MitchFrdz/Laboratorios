@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LabComputo.Data.tblClase>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaApartado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblLaboratorio.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblProfesor.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaApartado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblLaboratorio.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblProfesor.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClaseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClaseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClaseID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaboratoriosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAccesoAlumno">
+    <Key>
+      <PropertyRef Name="AccesoID" />
+    </Key>
+    <Property Name="AccesoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoID" Type="Int32" />
+    <Property Name="ComputadoraID" Type="Int32" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HoraE" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HoraS" Type="Time" Precision="7" />
+    <NavigationProperty Name="tblAlumno" Relationship="Self.FK__tblAcceso__Alumn__44FF419A" FromRole="tblAccesoAlumno" ToRole="tblAlumno" />
+    <NavigationProperty Name="tblComputadora" Relationship="Self.FK__tblAcceso__Compu__45F365D3" FromRole="tblAccesoAlumno" ToRole="tblComputadora" />
+  </EntityType>
+  <EntityType Name="tblAlumno">
+    <Key>
+      <PropertyRef Name="AlumnoID" />
+    </Key>
+    <Property Name="AlumnoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumeroControl" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Carrera" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FechaNac" Type="DateTime" Precision="0" />
+    <Property Name="Telefono" Type="Decimal" Precision="13" Scale="0" />
+    <NavigationProperty Name="tblAccesoAlumno" Relationship="Self.FK__tblAcceso__Alumn__44FF419A" FromRole="tblAlumno" ToRole="tblAccesoAlumno" />
+  </EntityType>
+  <EntityType Name="tblClase">
+    <Key>
+      <PropertyRef Name="ClaseID" />
+    </Key>
+    <Property Name="ClaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LaboratorioID" Type="Int32" />
+    <Property Name="ProfesorID" Type="Int32" />
+    <Property Name="FechaApartado" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Registro" Type="Boolean" />
+    <NavigationProperty Name="tblLaboratorio" Relationship="Self.FK__tblClase__Labora__412EB0B6" FromRole="tblClase" ToRole="tblLaboratorio" />
+    <NavigationProperty Name="tblProfesor" Relationship="Self.FK__tblClase__Profes__4222D4EF" FromRole="tblClase" ToRole="tblProfesor" />
+  </EntityType>
+  <EntityType Name="tblComputadora">
+    <Key>
+      <PropertyRef Name="ComputadoraID" />
+    </Key>
+    <Property Name="ComputadoraID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LaboratorioID" Type="Int32" />
+    <Property Name="NumeroComputadora" Type="Int32" Nullable="false" />
+    <Property Name="Funciona" Type="Boolean" Nullable="false" />
+    <Property Name="Nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAccesoAlumno" Relationship="Self.FK__tblAcceso__Compu__45F365D3" FromRole="tblComputadora" ToRole="tblAccesoAlumno" />
+    <NavigationProperty Name="tblLaboratorio" Relationship="Self.FK__tblComput__Labor__3D5E1FD2" FromRole="tblComputadora" ToRole="tblLaboratorio" />
+  </EntityType>
+  <EntityType Name="tblLaboratorio">
+    <Key>
+      <PropertyRef Name="LaboratorioID" />
+    </Key>
+    <Property Name="LaboratorioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Capacidad" Type="Int32" Nullable="false" />
+    <Property Name="Edificio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Disponible" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblClase" Relationship="Self.FK__tblClase__Labora__412EB0B6" FromRole="tblLaboratorio" ToRole="tblClase" />
+    <NavigationProperty Name="tblComputadora" Relationship="Self.FK__tblComput__Labor__3D5E1FD2" FromRole="tblLaboratorio" ToRole="tblComputadora" />
+    <NavigationProperty Name="tblObjetosOlvidados" Relationship="Self.FK__tblObjeto__Labor__4D94879B" FromRole="tblLaboratorio" ToRole="tblObjetosOlvidados" />
+  </EntityType>
+  <EntityType Name="tblObjetosOlvidados">
+    <Key>
+      <PropertyRef Name="ObjetosOlvidadosID" />
+    </Key>
+    <Property Name="ObjetosOlvidadosID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LaboratorioID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Nota" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tblLaboratorio" Relationship="Self.FK__tblObjeto__Labor__4D94879B" FromRole="tblObjetosOlvidados" ToRole="tblLaboratorio" />
+  </EntityType>
+  <EntityType Name="tblProfesor">
+    <Key>
+      <PropertyRef Name="ProfesorID" />
+    </Key>
+    <Property Name="ProfesorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumeroControl" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="Decimal" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="FechaNac" Type="DateTime" Precision="0" />
+    <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tblClase" Relationship="Self.FK__tblClase__Profes__4222D4EF" FromRole="tblProfesor" ToRole="tblClase" />
+  </EntityType>
+  <EntityType Name="tblUsuario">
+    <Key>
+      <PropertyRef Name="UsuarioID" />
+    </Key>
+    <Property Name="UsuarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Correo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contraseña" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Duracion" Type="Time" Precision="7" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeletedBy" Type="Int32" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblUsuario1" Relationship="Self.FK__tblUsuari__Creat__48CFD27E" FromRole="tblUsuario" ToRole="tblUsuario1" />
+    <NavigationProperty Name="tblUsuario2" Relationship="Self.FK__tblUsuari__Creat__48CFD27E" FromRole="tblUsuario1" ToRole="tblUsuario" />
+    <NavigationProperty Name="tblUsuario11" Relationship="Self.FK__tblUsuari__Delet__4AB81AF0" FromRole="tblUsuario" ToRole="tblUsuario1" />
+    <NavigationProperty Name="tblUsuario3" Relationship="Self.FK__tblUsuari__Delet__4AB81AF0" FromRole="tblUsuario1" ToRole="tblUsuario" />
+    <NavigationProperty Name="tblUsuario12" Relationship="Self.FK__tblUsuari__Updat__49C3F6B7" FromRole="tblUsuario" ToRole="tblUsuario1" />
+    <NavigationProperty Name="tblUsuario4" Relationship="Self.FK__tblUsuari__Updat__49C3F6B7" FromRole="tblUsuario1" ToRole="tblUsuario" />
+  </EntityType>
+  <Association Name="FK__tblAcceso__Alumn__44FF419A">
+    <End Role="tblAlumno" Type="Self.tblAlumno" Multiplicity="0..1" />
+    <End Role="tblAccesoAlumno" Type="Self.tblAccesoAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAlumno">
+        <PropertyRef Name="AlumnoID" />
+      </Principal>
+      <Dependent Role="tblAccesoAlumno">
+        <PropertyRef Name="AlumnoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblAcceso__Compu__45F365D3">
+    <End Role="tblComputadora" Type="Self.tblComputadora" Multiplicity="0..1" />
+    <End Role="tblAccesoAlumno" Type="Self.tblAccesoAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblComputadora">
+        <PropertyRef Name="ComputadoraID" />
+      </Principal>
+      <Dependent Role="tblAccesoAlumno">
+        <PropertyRef Name="ComputadoraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClase__Labora__412EB0B6">
+    <End Role="tblLaboratorio" Type="Self.tblLaboratorio" Multiplicity="0..1" />
+    <End Role="tblClase" Type="Self.tblClase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLaboratorio">
+        <PropertyRef Name="LaboratorioID" />
+      </Principal>
+      <Dependent Role="tblClase">
+        <PropertyRef Name="LaboratorioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClase__Profes__4222D4EF">
+    <End Role="tblProfesor" Type="Self.tblProfesor" Multiplicity="0..1" />
+    <End Role="tblClase" Type="Self.tblClase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProfesor">
+        <PropertyRef Name="ProfesorID" />
+      </Principal>
+      <Dependent Role="tblClase">
+        <PropertyRef Name="ProfesorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblComput__Labor__3D5E1FD2">
+    <End Role="tblLaboratorio" Type="Self.tblLaboratorio" Multiplicity="0..1" />
+    <End Role="tblComputadora" Type="Self.tblComputadora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLaboratorio">
+        <PropertyRef Name="LaboratorioID" />
+      </Principal>
+      <Dependent Role="tblComputadora">
+        <PropertyRef Name="LaboratorioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblObjeto__Labor__4D94879B">
+    <End Role="tblLaboratorio" Type="Self.tblLaboratorio" Multiplicity="1" />
+    <End Role="tblObjetosOlvidados" Type="Self.tblObjetosOlvidados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLaboratorio">
+        <PropertyRef Name="LaboratorioID" />
+      </Principal>
+      <Dependent Role="tblObjetosOlvidados">
+        <PropertyRef Name="LaboratorioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUsuari__Creat__48CFD27E">
+    <End Role="tblUsuario" Type="Self.tblUsuario" Multiplicity="1" />
+    <End Role="tblUsuario1" Type="Self.tblUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsuario">
+        <PropertyRef Name="UsuarioID" />
+      </Principal>
+      <Dependent Role="tblUsuario1">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUsuari__Delet__4AB81AF0">
+    <End Role="tblUsuario" Type="Self.tblUsuario" Multiplicity="0..1" />
+    <End Role="tblUsuario1" Type="Self.tblUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsuario">
+        <PropertyRef Name="UsuarioID" />
+      </Principal>
+      <Dependent Role="tblUsuario1">
+        <PropertyRef Name="DeletedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblUsuari__Updat__49C3F6B7">
+    <End Role="tblUsuario" Type="Self.tblUsuario" Multiplicity="1" />
+    <End Role="tblUsuario1" Type="Self.tblUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsuario">
+        <PropertyRef Name="UsuarioID" />
+      </Principal>
+      <Dependent Role="tblUsuario1">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LaboratoriosDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAccesoAlumno" EntityType="Self.tblAccesoAlumno" />
+    <EntitySet Name="tblAlumno" EntityType="Self.tblAlumno" />
+    <EntitySet Name="tblClase" EntityType="Self.tblClase" />
+    <EntitySet Name="tblComputadora" EntityType="Self.tblComputadora" />
+    <EntitySet Name="tblLaboratorio" EntityType="Self.tblLaboratorio" />
+    <EntitySet Name="tblObjetosOlvidados" EntityType="Self.tblObjetosOlvidados" />
+    <EntitySet Name="tblProfesor" EntityType="Self.tblProfesor" />
+    <EntitySet Name="tblUsuario" EntityType="Self.tblUsuario" />
+    <AssociationSet Name="FK__tblAcceso__Alumn__44FF419A" Association="Self.FK__tblAcceso__Alumn__44FF419A">
+      <End Role="tblAlumno" EntitySet="tblAlumno" />
+      <End Role="tblAccesoAlumno" EntitySet="tblAccesoAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblAcceso__Compu__45F365D3" Association="Self.FK__tblAcceso__Compu__45F365D3">
+      <End Role="tblComputadora" EntitySet="tblComputadora" />
+      <End Role="tblAccesoAlumno" EntitySet="tblAccesoAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClase__Labora__412EB0B6" Association="Self.FK__tblClase__Labora__412EB0B6">
+      <End Role="tblLaboratorio" EntitySet="tblLaboratorio" />
+      <End Role="tblClase" EntitySet="tblClase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClase__Profes__4222D4EF" Association="Self.FK__tblClase__Profes__4222D4EF">
+      <End Role="tblProfesor" EntitySet="tblProfesor" />
+      <End Role="tblClase" EntitySet="tblClase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblComput__Labor__3D5E1FD2" Association="Self.FK__tblComput__Labor__3D5E1FD2">
+      <End Role="tblLaboratorio" EntitySet="tblLaboratorio" />
+      <End Role="tblComputadora" EntitySet="tblComputadora" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblObjeto__Labor__4D94879B" Association="Self.FK__tblObjeto__Labor__4D94879B">
+      <End Role="tblLaboratorio" EntitySet="tblLaboratorio" />
+      <End Role="tblObjetosOlvidados" EntitySet="tblObjetosOlvidados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsuari__Creat__48CFD27E" Association="Self.FK__tblUsuari__Creat__48CFD27E">
+      <End Role="tblUsuario" EntitySet="tblUsuario" />
+      <End Role="tblUsuario1" EntitySet="tblUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsuari__Delet__4AB81AF0" Association="Self.FK__tblUsuari__Delet__4AB81AF0">
+      <End Role="tblUsuario" EntitySet="tblUsuario" />
+      <End Role="tblUsuario1" EntitySet="tblUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsuari__Updat__49C3F6B7" Association="Self.FK__tblUsuari__Updat__49C3F6B7">
+      <End Role="tblUsuario" EntitySet="tblUsuario" />
+      <End Role="tblUsuario1" EntitySet="tblUsuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

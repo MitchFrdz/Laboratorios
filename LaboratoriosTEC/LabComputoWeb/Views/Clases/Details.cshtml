@@ -1,0 +1,50 @@
+﻿@model LabComputo.Data.tblClase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblClase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaApartado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaApartado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Registro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLaboratorio.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLaboratorio.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProfesor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProfesor.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClaseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

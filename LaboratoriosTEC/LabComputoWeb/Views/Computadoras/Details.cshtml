@@ -1,0 +1,50 @@
+﻿@model LabComputo.Data.tblComputadora
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblComputadora</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroComputadora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroComputadora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funciona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funciona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblLaboratorio.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblLaboratorio.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ComputadoraID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

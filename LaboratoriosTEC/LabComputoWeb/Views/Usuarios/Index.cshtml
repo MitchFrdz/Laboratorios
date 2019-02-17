@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LabComputo.Data.tblUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUsuario2.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUsuario3.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUsuario4.Correo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUsuario2.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUsuario3.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUsuario4.Correo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UsuarioID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaboratoriosDBModelStoreContainer" CdmEntityContainer="LaboratoriosDB">
+    <EntitySetMapping Name="tblAccesoAlumnoes">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblAccesoAlumno">
+        <MappingFragment StoreEntitySet="tblAccesoAlumno">
+          <ScalarProperty Name="AccesoID" ColumnName="AccesoID" />
+          <ScalarProperty Name="AlumnoID" ColumnName="AlumnoID" />
+          <ScalarProperty Name="ComputadoraID" ColumnName="ComputadoraID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HoraE" ColumnName="HoraE" />
+          <ScalarProperty Name="HoraS" ColumnName="HoraS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAlumnoes">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblAlumno">
+        <MappingFragment StoreEntitySet="tblAlumno">
+          <ScalarProperty Name="AlumnoID" ColumnName="AlumnoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NumeroControl" ColumnName="NumeroControl" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClases">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblClase">
+        <MappingFragment StoreEntitySet="tblClase">
+          <ScalarProperty Name="ClaseID" ColumnName="ClaseID" />
+          <ScalarProperty Name="LaboratorioID" ColumnName="LaboratorioID" />
+          <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+          <ScalarProperty Name="FechaApartado" ColumnName="FechaApartado" />
+          <ScalarProperty Name="Registro" ColumnName="Registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblComputadoras">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblComputadora">
+        <MappingFragment StoreEntitySet="tblComputadora">
+          <ScalarProperty Name="ComputadoraID" ColumnName="ComputadoraID" />
+          <ScalarProperty Name="LaboratorioID" ColumnName="LaboratorioID" />
+          <ScalarProperty Name="NumeroComputadora" ColumnName="NumeroComputadora" />
+          <ScalarProperty Name="Funciona" ColumnName="Funciona" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLaboratorios">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblLaboratorio">
+        <MappingFragment StoreEntitySet="tblLaboratorio">
+          <ScalarProperty Name="LaboratorioID" ColumnName="LaboratorioID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+          <ScalarProperty Name="Edificio" ColumnName="Edificio" />
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblObjetosOlvidado">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblObjetosOlvidado">
+        <MappingFragment StoreEntitySet="tblObjetosOlvidado">
+          <ScalarProperty Name="ObjetosOlvidadosID" ColumnName="ObjetosOlvidadosID" />
+          <ScalarProperty Name="LaboratorioID" ColumnName="LaboratorioID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProfesors">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblProfesor">
+        <MappingFragment StoreEntitySet="tblProfesor">
+          <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NumeroControl" ColumnName="NumeroControl" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsuarios">
+      <EntityTypeMapping TypeName="LaboratoriosDBModel.tblUsuario">
+        <MappingFragment StoreEntitySet="tblUsuario">
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

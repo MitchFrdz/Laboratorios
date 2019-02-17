@@ -1,0 +1,12 @@
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\LabComputo.Data.dll.config
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\LabComputo.Data.dll
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\LabComputo.Data.pdb
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\obj\Debug\LabComputo.Data.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\obj\Debug\LabComputo.Data.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\obj\Debug\LabComputo.Data.csproj.CopyComplete
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\obj\Debug\LabComputo.Data.dll
+C:\Users\Usuario\source\repos\Laboratorios1\LabComputo.Data\obj\Debug\LabComputo.Data.pdb
