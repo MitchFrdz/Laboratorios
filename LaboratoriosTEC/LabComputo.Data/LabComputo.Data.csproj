@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +62,7 @@
     <Compile Include="tblObjetosOlvidado.cs" />
     <Compile Include="tblProfesor.cs" />
     <Compile Include="tblUsuario.cs" />
+    <Compile Include="UploadFileModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

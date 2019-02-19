@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using LabComputo.Data;
 using System.IO;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace LabComputoWeb.Controllers
 {
     public class AlumnosController : Controller
@@ -47,39 +50,46 @@ namespace LabComputoWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( HttpPostedFileBase file)
+        public ActionResult Create(UploadFileModel model)
         {
 			// crear carpeta fisica si no existe
-			try {/*
-				Directory.CreateDirectory((Server.MapPath("~/uploads/" + tblAlumno.Nombre)));*/
+			try {
+				Directory.CreateDirectory((Server.MapPath("~/uploads/" + model.Nombre)));
 			}
 			catch (Exception) { }
 			// ver si si se envio algo
-			if (file != null)
-			{/*
-				var fileName = Path.GetFileName(file.FileName);
+			if (model != null)
+			{
+				var fileName = Path.GetFileName(model.Files[0].FileName);
 				// subir archivo 
-				var path = Path.Combine(Server.MapPath("~/uploads/" + tblAlumno.Nombre + Session["Path"]), fileName);
+				var path = Path.Combine(Server.MapPath("~/uploads/" + model.Nombre + Session["Path"]), fileName);
 				if (System.IO.File.Exists(path))
 				{
 					System.IO.File.Delete(path);
 				}
-				file.SaveAs(path);
+				model.Files[0].SaveAs(path);
 
 				// crear objeto archivo
 				//Archivo archivo = set(fileName, "a");
-
+				tblAlumno alumno = new tblAlumno();
+				alumno.Nombre = model.Nombre;
+				alumno.NumeroControl = model.NumeroControl;
+				alumno.Correo = model.Correo;
+				alumno.Carrera = model.Carrera;
+				alumno.FechaNac = model.FechaNac;
+				alumno.Telefono = model.Telefono;
+				alumno.Foto = path;
 				// ver si ya existe en la base de datos y si no agregarlo
-				if (!db.tblAlumno.Any(x => x.Foto == tblAlumno.Foto))
+				if (!db.tblAlumno.Any(x => x.Foto == alumno.Foto))
 				{
 					if (ModelState.IsValid)
 					{
-						db.tblAlumno.Add(tblAlumno);
+						db.tblAlumno.Add(alumno);
 						db.SaveChanges();
 						return RedirectToAction("Index");
 					}
 				}
-				*/
+				
 				//subir al catalogo
 				//CU.Create("Subio archivo " + fileName + " en " + Session["UserName"] + Session["Path"].ToString(), Int32.Parse(Session["UserID"].ToString()), Int32.Parse(Session["IDAcceso"].ToString()));
 			}

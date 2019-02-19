@@ -33,7 +33,7 @@ namespace LabComputo.Data
         [StringLength(60)]
         public string Carrera { get; set; }
 
-        public byte[] Foto { get; set; }
+        public string Foto { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? FechaNac { get; set; }

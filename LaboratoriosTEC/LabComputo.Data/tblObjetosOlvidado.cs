@@ -18,7 +18,7 @@ namespace LabComputo.Data
         [StringLength(100)]
         public string Nombre { get; set; }
 
-        public byte[] Foto { get; set; }
+        public string Foto { get; set; }
 
         [StringLength(600)]
         public string Nota { get; set; }
